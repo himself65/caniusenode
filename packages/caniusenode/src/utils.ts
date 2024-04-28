@@ -36,7 +36,7 @@ export async function runBun(code: string) {
   return spawnSync("bun", [file]);
 }
 
-export async function runCloudflare(code: string) {
+export async function runCloudflare(code: string): Promise<string | null> {
   const file = resolve(currentDir, "..", "cloudflare", "src", "index.ts");
   try {
     const port = await getPort();
@@ -54,7 +54,7 @@ export async function runCloudflare(code: string) {
       port,
       output: "silent",
       timeout: 2000,
-    });
+    }).catch(() => {});
     return fetch(`http://localhost:${port}/`)
       .then((res) => res.text())
       .then((text) => {
@@ -66,6 +66,8 @@ export async function runCloudflare(code: string) {
         return null;
       });
   } catch (e) {
+    console.log("Error in runCloudflare", e);
+    return null;
   } finally {
     await rm(file);
   }
