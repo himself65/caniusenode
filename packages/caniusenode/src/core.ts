@@ -1,9 +1,7 @@
 import { spawnSync } from "node:child_process";
-import { resolve, extname } from "node:path";
-import { fileURLToPath } from "node:url";
-
-const currentDir = fileURLToPath(new URL(".", import.meta.url));
-const fixtures = (file: string) => resolve(currentDir, "fixtures", file);
+import { extname } from "node:path";
+import { fixtures } from "./utils";
+import { Status } from "./type";
 
 type Matrix = {
   target: string;
@@ -17,7 +15,7 @@ const getNodeVersion = () => {
 
 const getDenoVersion = () => {
   const cp = spawnSync("deno", ["--version"]);
-  return cp.stdout.toString().trim();
+  return cp.stdout.toString().split("\n")[0]!.trim();
 };
 
 const getBunVersion = () => {
@@ -64,10 +62,11 @@ type MatrixResult =
 type TableItem = {
   api: string;
   supportTable: {
-    deno: boolean;
-    bun: boolean;
-    nodeCJS: boolean;
-    nodeESM: boolean;
+    deno: Status;
+    bun: Status;
+    nodeCJS: Status;
+    nodeESM: Status;
+    cloudflare: Status;
   };
 };
 
@@ -122,25 +121,34 @@ export async function benchmark(filePath: string, annotation: Annotation) {
       item = {
         api: annotation.api,
         supportTable: {
-          bun: false,
-          deno: false,
-          nodeCJS: false,
-          nodeESM: false,
+          bun: Status.Unknown,
+          deno: Status.Unknown,
+          nodeCJS: Status.Unknown,
+          nodeESM: Status.Unknown,
+          cloudflare: Status.Unknown,
         },
       };
       table.set(annotation.api, item);
     }
     if (target === "deno" && type === "module") {
-      item.supportTable.deno = result.success;
+      item.supportTable.deno = result.success
+        ? Status.Support
+        : Status.NotSupport;
     }
     if (target === "node" && type === "commonjs") {
-      item.supportTable.nodeCJS = result.success;
+      item.supportTable.nodeCJS = result.success
+        ? Status.Support
+        : Status.NotSupport;
     }
     if (target === "node" && type === "module") {
-      item.supportTable.nodeESM = result.success;
+      item.supportTable.nodeESM = result.success
+        ? Status.Support
+        : Status.NotSupport;
     }
     if (target === "bun") {
-      item.supportTable.bun = result.success;
+      item.supportTable.bun = result.success
+        ? Status.Support
+        : Status.NotSupport;
     }
   }
 }
@@ -161,10 +169,11 @@ for (const item of globalsResultTable) {
     tableItem = {
       api: item.name,
       supportTable: {
-        bun: false,
-        deno: false,
-        nodeCJS: false,
-        nodeESM: false,
+        bun: Status.Unknown,
+        deno: Status.Unknown,
+        nodeCJS: Status.Unknown,
+        nodeESM: Status.Unknown,
+        cloudflare: Status.Unknown,
       },
     };
     table.set(item.name, tableItem);
@@ -174,6 +183,7 @@ for (const item of globalsResultTable) {
     deno: item.deno,
     nodeCJS: item.nodeCJS,
     nodeESM: item.nodeESM,
+    cloudflare: item.cloudflare,
   };
 }
 
@@ -185,10 +195,11 @@ for (const item of modulesResultTable) {
     tableItem = {
       api: `module "${item.name}"`,
       supportTable: {
-        bun: false,
-        deno: false,
-        nodeCJS: false,
-        nodeESM: false,
+        bun: Status.Unknown,
+        deno: Status.Unknown,
+        nodeCJS: Status.Unknown,
+        nodeESM: Status.Unknown,
+        cloudflare: Status.Unknown,
       },
     };
     table.set(item.name, tableItem);
@@ -198,6 +209,7 @@ for (const item of modulesResultTable) {
     deno: item.deno,
     nodeCJS: item.nodeCJS,
     nodeESM: item.nodeESM,
+    cloudflare: item.cloudflare,
   };
 }
 
@@ -205,4 +217,4 @@ const nodeVersion = getNodeVersion();
 const denoVersion = getDenoVersion();
 const bunVersion = getBunVersion();
 
-export { currentDir, table, nodeVersion, denoVersion, bunVersion };
+export { table, nodeVersion, denoVersion, bunVersion };

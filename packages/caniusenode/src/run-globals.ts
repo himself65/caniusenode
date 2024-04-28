@@ -1,18 +1,18 @@
 import json from "./fixtures/all.json" assert { type: "json" };
-import { runBun, runDeno, runNodeCJS, runNodeESM } from "./utils";
+import {
+  runBun,
+  runCloudflare,
+  runDeno,
+  runNodeCJS,
+  runNodeESM,
+} from "./utils";
+import { type ResultTable, Status } from "./type";
 
 const globalObjects = json.miscs.find(
   (misc) => misc.name === "Global objects",
 )!;
 
-type GlobalsResultTable = {
-  name: string;
-  nodeESM: boolean;
-  nodeCJS: boolean;
-  deno: boolean;
-  bun: boolean;
-}[];
-const globalsResultTable: GlobalsResultTable = [];
+const globalsResultTable: ResultTable = [];
 
 for (const section of ["globals", "classes", "miscs", "methods"] as const) {
   const items = globalObjects[section]!;
@@ -30,10 +30,11 @@ ${items
       // init
       globalsResultTable.push({
         name,
-        nodeCJS: false,
-        nodeESM: false,
-        deno: false,
-        bun: false,
+        nodeCJS: Status.Unknown,
+        nodeESM: Status.Unknown,
+        deno: Status.Unknown,
+        bun: Status.Unknown,
+        cloudflare: Status.Unknown,
       });
     }
     return `  result['${name}'] = typeof ${name} !== "undefined"`;
@@ -52,7 +53,7 @@ console.log(runTest())`;
     const result: Result = JSON.parse(stdout.toString().trim());
     Object.entries(result).forEach(([name, value]) => {
       const item = globalsResultTable.find((item) => item.name === name)!;
-      item.nodeCJS = value;
+      item.nodeCJS = value ? Status.Support : Status.NotSupport;
     });
   }
 
@@ -62,7 +63,7 @@ console.log(runTest())`;
     const result: Result = JSON.parse(stdout.toString().trim());
     Object.entries(result).forEach(([name, value]) => {
       const item = globalsResultTable.find((item) => item.name === name)!;
-      item.nodeESM = value;
+      item.nodeESM = value ? Status.Support : Status.NotSupport;
     });
   }
 
@@ -72,7 +73,7 @@ console.log(runTest())`;
     const result: Result = JSON.parse(stdout.toString().trim());
     Object.entries(result).forEach(([name, value]) => {
       const item = globalsResultTable.find((item) => item.name === name)!;
-      item.deno = value;
+      item.deno = value ? Status.Support : Status.NotSupport;
     });
   }
 
@@ -82,7 +83,28 @@ console.log(runTest())`;
     const result: Result = JSON.parse(stdout.toString().trim());
     Object.entries(result).forEach(([name, value]) => {
       const item = globalsResultTable.find((item) => item.name === name)!;
-      item.bun = value;
+      item.bun = value ? Status.Support : Status.NotSupport;
+    });
+  }
+
+  {
+    // cloudflare
+    const stdout = await runCloudflare(`
+export default {
+  async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
+    ${runTestCode}
+    const result = runTest();
+    return new Response(result);
+  },
+};
+`);
+    if (!stdout) {
+      throw new Error("Failed to run cloudflare worker");
+    }
+    const result: Result = JSON.parse(stdout.toString().trim());
+    Object.entries(result).forEach(([name, value]) => {
+      const item = globalsResultTable.find((item) => item.name === name)!;
+      item.cloudflare = value ? Status.Support : Status.NotSupport;
     });
   }
 }

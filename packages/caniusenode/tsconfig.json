@@ -21,6 +21,9 @@
   "references": [
     {
       "path": "./src/tsconfig.json"
+    },
+    {
+      "path": "./cloudflare/tsconfig.json"
     }
   ],
   "exclude": ["node_modules"]

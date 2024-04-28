@@ -1,5 +1,12 @@
-import { runBun, runDeno, runNodeCJS, runNodeESM } from "./utils";
+import {
+  runBun,
+  runCloudflare,
+  runDeno,
+  runNodeCJS,
+  runNodeESM,
+} from "./utils";
 import * as console from "node:console";
+import { type ResultTable, Status } from "./type";
 
 const nodeModules = [
   "node:assert",
@@ -48,20 +55,14 @@ const nodeModules = [
   "node:zlib",
 ] as const;
 
-type ModulesResultTable = {
-  name: string;
-  nodeESM: boolean;
-  nodeCJS: boolean;
-  deno: boolean;
-  bun: boolean;
-}[];
-const modulesResultTable: ModulesResultTable = [
+const modulesResultTable: ResultTable = [
   ...nodeModules.map((name) => ({
     name,
-    nodeESM: false,
-    nodeCJS: false,
-    deno: false,
-    bun: false,
+    nodeESM: Status.Unknown,
+    nodeCJS: Status.Unknown,
+    deno: Status.Unknown,
+    bun: Status.Unknown,
+    cloudflare: Status.Unknown,
   })),
 ];
 
@@ -75,7 +76,7 @@ const generateRequireCode = (moduleName: string) =>
     const result = await runNodeCJS(generateRequireCode(moduleName));
     const notSupported = result.status !== 0;
     const item = modulesResultTable.find((item) => item.name === moduleName)!;
-    item.nodeCJS = !notSupported;
+    item.nodeCJS = notSupported ? Status.NotSupport : Status.Support;
   }
 }
 
@@ -85,7 +86,7 @@ const generateRequireCode = (moduleName: string) =>
     const result = await runNodeESM(generateImportCode(moduleName));
     const notSupported = result.status !== 0;
     const item = modulesResultTable.find((item) => item.name === moduleName)!;
-    item.nodeESM = !notSupported;
+    item.nodeESM = notSupported ? Status.NotSupport : Status.Support;
   }
 }
 
@@ -95,7 +96,7 @@ const generateRequireCode = (moduleName: string) =>
     const result = runDeno(generateImportCode(moduleName));
     const notSupported = result.status !== 0;
     const item = modulesResultTable.find((item) => item.name === moduleName)!;
-    item.deno = !notSupported;
+    item.deno = notSupported ? Status.NotSupport : Status.Support;
   }
 }
 
@@ -105,7 +106,27 @@ const generateRequireCode = (moduleName: string) =>
     const result = await runBun(generateRequireCode(moduleName));
     const notSupported = result.status !== 0;
     const item = modulesResultTable.find((item) => item.name === moduleName)!;
-    item.bun = !notSupported;
+    item.bun = notSupported ? Status.NotSupport : Status.Support;
+  }
+}
+
+{
+  // cloudflare worker
+  for (const moduleName of nodeModules) {
+    console.log("running cloudflare worker", moduleName);
+    const result = await runCloudflare(`
+import "${moduleName}";
+export default {
+  async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
+    return new Response('SUCCESS');
+  },
+};`);
+    const item = modulesResultTable.find((item) => item.name === moduleName)!;
+    if (result === "SUCCESS") {
+      item.cloudflare = Status.Support;
+    } else {
+      item.cloudflare = Status.NotSupport;
+    }
   }
 }
 

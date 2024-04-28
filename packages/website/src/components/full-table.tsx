@@ -11,23 +11,25 @@ export function FullTable() {
       </div>
       <table>
         <caption>API Compatibility table</caption>
-        <thead>
+        <thead className="top-0 sticky bg-white">
           <tr>
             <th>API</th>
             <th>Node CJS</th>
             <th>Node ESM</th>
             <th>Deno</th>
             <th>Bun</th>
+            <th>Cloudflare Worker</th>
           </tr>
         </thead>
         <tbody>
           {json.apis.map((row) => (
             <tr key={row.api}>
               <td>{row.api}</td>
-              <td>{row.supportTable.nodeCJS ? "✅" : "❌"}</td>
-              <td>{row.supportTable.nodeESM ? "✅" : "❌"}</td>
-              <td>{row.supportTable.deno ? "✅" : "❌"}</td>
-              <td>{row.supportTable.bun ? "✅" : "❌"}</td>
+              <td>{row.supportTable.nodeCJS === "Y" ? "✅" : "❌"}</td>
+              <td>{row.supportTable.nodeESM === "Y" ? "✅" : "❌"}</td>
+              <td>{row.supportTable.deno === "Y" ? "✅" : "❌"}</td>
+              <td>{row.supportTable.bun === "Y" ? "✅" : "❌"}</td>
+              <td>{row.supportTable.cloudflare === "Y" ? "✅" : "❌"}</td>
             </tr>
           ))}
         </tbody>
