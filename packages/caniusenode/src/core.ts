@@ -10,12 +10,15 @@ type Matrix = {
 
 const getNodeVersion = () => {
   const cp = spawnSync("node", ["--version"]);
-  return cp.stdout.toString().trim();
+  const version = cp.stdout.toString().trim();
+  return version.slice(1);
 };
 
 const getDenoVersion = () => {
   const cp = spawnSync("deno", ["--version"]);
-  return cp.stdout.toString().split("\n")[0]!.trim();
+  const version = cp.stdout.toString().split("\n")[0]!.trim();
+  // deno 1.xx.x (release, aarch64-apple-darwin)
+  return version.split(" ")[1];
 };
 
 const getBunVersion = () => {

@@ -1,0 +1,1130 @@
+{
+  "versions": {
+    "node": "20.11.1",
+    "deno": "1.42.4",
+    "bun": "1.1.4",
+    "cloudflare": "3.52.0"
+  },
+  "apis": [
+    {
+      "api": "require",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "N",
+        "nodeCJS": "Y",
+        "nodeESM": "N",
+        "cloudflare": "Y"
+      }
+    },
+    {
+      "api": "AbortController",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "Y"
+      }
+    },
+    {
+      "api": "Blob",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "Y"
+      }
+    },
+    {
+      "api": "Buffer",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "N",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "N"
+      }
+    },
+    {
+      "api": "clearImmediate",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "N",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "N"
+      }
+    },
+    {
+      "api": "clearInterval",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "Y"
+      }
+    },
+    {
+      "api": "clearTimeout",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "Y"
+      }
+    },
+    {
+      "api": "console",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "Y"
+      }
+    },
+    {
+      "api": "CustomEvent",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "Y"
+      }
+    },
+    {
+      "api": "Event",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "Y"
+      }
+    },
+    {
+      "api": "EventTarget",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "Y"
+      }
+    },
+    {
+      "api": "File",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "Y"
+      }
+    },
+    {
+      "api": "global",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "N",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "N"
+      }
+    },
+    {
+      "api": "MessageChannel",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "N"
+      }
+    },
+    {
+      "api": "MessageEvent",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "Y"
+      }
+    },
+    {
+      "api": "MessagePort",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "N"
+      }
+    },
+    {
+      "api": "PerformanceEntry",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "N"
+      }
+    },
+    {
+      "api": "PerformanceMark",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "N"
+      }
+    },
+    {
+      "api": "PerformanceMeasure",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "N"
+      }
+    },
+    {
+      "api": "PerformanceObserver",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "N",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "N"
+      }
+    },
+    {
+      "api": "PerformanceObserverEntryList",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "N",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "N"
+      }
+    },
+    {
+      "api": "PerformanceResourceTiming",
+      "supportTable": {
+        "bun": "N",
+        "deno": "N",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "N"
+      }
+    },
+    {
+      "api": "process",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "N",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "N"
+      }
+    },
+    {
+      "api": "queueMicrotask",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "Y"
+      }
+    },
+    {
+      "api": "setImmediate",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "N",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "N"
+      }
+    },
+    {
+      "api": "setInterval",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "Y"
+      }
+    },
+    {
+      "api": "setTimeout",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "Y"
+      }
+    },
+    {
+      "api": "structuredClone",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "Y"
+      }
+    },
+    {
+      "api": "DOMException",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "Y"
+      }
+    },
+    {
+      "api": "TextDecoder",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "Y"
+      }
+    },
+    {
+      "api": "TextEncoder",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "Y"
+      }
+    },
+    {
+      "api": "URL",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "Y"
+      }
+    },
+    {
+      "api": "URLSearchParams",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "Y"
+      }
+    },
+    {
+      "api": "WebAssembly",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "Y"
+      }
+    },
+    {
+      "api": "ByteLengthQueuingStrategy",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "Y"
+      }
+    },
+    {
+      "api": "CompressionStream",
+      "supportTable": {
+        "bun": "N",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "Y"
+      }
+    },
+    {
+      "api": "CountQueuingStrategy",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "Y"
+      }
+    },
+    {
+      "api": "DecompressionStream",
+      "supportTable": {
+        "bun": "N",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "Y"
+      }
+    },
+    {
+      "api": "ReadableByteStreamController",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "Y"
+      }
+    },
+    {
+      "api": "ReadableStream",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "Y"
+      }
+    },
+    {
+      "api": "ReadableStreamBYOBReader",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "Y"
+      }
+    },
+    {
+      "api": "ReadableStreamBYOBRequest",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "Y"
+      }
+    },
+    {
+      "api": "ReadableStreamDefaultController",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "Y"
+      }
+    },
+    {
+      "api": "ReadableStreamDefaultReader",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "Y"
+      }
+    },
+    {
+      "api": "TextDecoderStream",
+      "supportTable": {
+        "bun": "N",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "Y"
+      }
+    },
+    {
+      "api": "TextEncoderStream",
+      "supportTable": {
+        "bun": "N",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "Y"
+      }
+    },
+    {
+      "api": "TransformStream",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "Y"
+      }
+    },
+    {
+      "api": "TransformStreamDefaultController",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "N"
+      }
+    },
+    {
+      "api": "WritableStream",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "Y"
+      }
+    },
+    {
+      "api": "WritableStreamDefaultController",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "Y"
+      }
+    },
+    {
+      "api": "WritableStreamDefaultWriter",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "Y"
+      }
+    },
+    {
+      "api": "__dirname",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "N",
+        "nodeCJS": "Y",
+        "nodeESM": "N",
+        "cloudflare": "N"
+      }
+    },
+    {
+      "api": "__filename",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "N",
+        "nodeCJS": "Y",
+        "nodeESM": "N",
+        "cloudflare": "N"
+      }
+    },
+    {
+      "api": "broadcastchannel",
+      "supportTable": {
+        "bun": "N",
+        "deno": "N",
+        "nodeCJS": "N",
+        "nodeESM": "N",
+        "cloudflare": "N"
+      }
+    },
+    {
+      "api": "crypto",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "Y"
+      }
+    },
+    {
+      "api": "cryptokey",
+      "supportTable": {
+        "bun": "N",
+        "deno": "N",
+        "nodeCJS": "N",
+        "nodeESM": "N",
+        "cloudflare": "N"
+      }
+    },
+    {
+      "api": "exports",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "N",
+        "nodeCJS": "Y",
+        "nodeESM": "N",
+        "cloudflare": "N"
+      }
+    },
+    {
+      "api": "fetch",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "Y"
+      }
+    },
+    {
+      "api": "FormData",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "Y"
+      }
+    },
+    {
+      "api": "Headers",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "Y"
+      }
+    },
+    {
+      "api": "module",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "N",
+        "nodeCJS": "Y",
+        "nodeESM": "N",
+        "cloudflare": "N"
+      }
+    },
+    {
+      "api": "navigator",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "N",
+        "nodeESM": "N",
+        "cloudflare": "Y"
+      }
+    },
+    {
+      "api": "performance",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "Y"
+      }
+    },
+    {
+      "api": "response",
+      "supportTable": {
+        "bun": "N",
+        "deno": "N",
+        "nodeCJS": "N",
+        "nodeESM": "N",
+        "cloudflare": "N"
+      }
+    },
+    {
+      "api": "request",
+      "supportTable": {
+        "bun": "N",
+        "deno": "N",
+        "nodeCJS": "N",
+        "nodeESM": "N",
+        "cloudflare": "Y"
+      }
+    },
+    {
+      "api": "subtlecrypto",
+      "supportTable": {
+        "bun": "N",
+        "deno": "N",
+        "nodeCJS": "N",
+        "nodeESM": "N",
+        "cloudflare": "N"
+      }
+    },
+    {
+      "api": "websocket",
+      "supportTable": {
+        "bun": "N",
+        "deno": "N",
+        "nodeCJS": "N",
+        "nodeESM": "N",
+        "cloudflare": "N"
+      }
+    },
+    {
+      "api": "atob",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "Y"
+      }
+    },
+    {
+      "api": "btoa",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "Y"
+      }
+    },
+    {
+      "api": "module \"node:assert\"",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "Y"
+      }
+    },
+    {
+      "api": "module \"node:async_hooks\"",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "Y"
+      }
+    },
+    {
+      "api": "module \"node:buffer\"",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "Y"
+      }
+    },
+    {
+      "api": "module \"node:child_process\"",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "N"
+      }
+    },
+    {
+      "api": "module \"node:cluster\"",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "N"
+      }
+    },
+    {
+      "api": "module \"node:console\"",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "N"
+      }
+    },
+    {
+      "api": "module \"node:constants\"",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "N"
+      }
+    },
+    {
+      "api": "module \"node:crypto\"",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "Y"
+      }
+    },
+    {
+      "api": "module \"node:dgram\"",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "N"
+      }
+    },
+    {
+      "api": "module \"node:diagnostics_channel\"",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "Y"
+      }
+    },
+    {
+      "api": "module \"node:dns\"",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "N"
+      }
+    },
+    {
+      "api": "module \"node:domain\"",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "N"
+      }
+    },
+    {
+      "api": "module \"node:events\"",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "Y"
+      }
+    },
+    {
+      "api": "module \"node:fs\"",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "N"
+      }
+    },
+    {
+      "api": "module \"node:http\"",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "N"
+      }
+    },
+    {
+      "api": "module \"node:http2\"",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "N"
+      }
+    },
+    {
+      "api": "module \"node:https\"",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "N"
+      }
+    },
+    {
+      "api": "module \"node:inspector\"",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "N",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "N"
+      }
+    },
+    {
+      "api": "module \"node:module\"",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "N"
+      }
+    },
+    {
+      "api": "module \"node:net\"",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "N"
+      }
+    },
+    {
+      "api": "module \"node:os\"",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "N"
+      }
+    },
+    {
+      "api": "module \"node:path\"",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "Y"
+      }
+    },
+    {
+      "api": "module \"node:perf_hooks\"",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "N"
+      }
+    },
+    {
+      "api": "module \"node:process\"",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "Y"
+      }
+    },
+    {
+      "api": "module \"node:punycode\"",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "N"
+      }
+    },
+    {
+      "api": "module \"node:querystring\"",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "N"
+      }
+    },
+    {
+      "api": "module \"node:readline\"",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "N"
+      }
+    },
+    {
+      "api": "module \"node:repl\"",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "N"
+      }
+    },
+    {
+      "api": "module \"node:stream\"",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "Y"
+      }
+    },
+    {
+      "api": "module \"node:string_decoder\"",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "Y"
+      }
+    },
+    {
+      "api": "module \"node:sys\"",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "N"
+      }
+    },
+    {
+      "api": "module \"node:test\"",
+      "supportTable": {
+        "bun": "N",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "Y"
+      }
+    },
+    {
+      "api": "module \"node:timers\"",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "N"
+      }
+    },
+    {
+      "api": "module \"node:tls\"",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "N"
+      }
+    },
+    {
+      "api": "module \"node:trace_events\"",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "N",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "N"
+      }
+    },
+    {
+      "api": "module \"node:tty\"",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "N"
+      }
+    },
+    {
+      "api": "module \"node:url\"",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "N"
+      }
+    },
+    {
+      "api": "module \"node:util\"",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "Y"
+      }
+    },
+    {
+      "api": "module \"node:v8\"",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "N"
+      }
+    },
+    {
+      "api": "module \"node:vm\"",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "N"
+      }
+    },
+    {
+      "api": "module \"node:wasi\"",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "N",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "N"
+      }
+    },
+    {
+      "api": "module \"node:worker_threads\"",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "N"
+      }
+    },
+    {
+      "api": "module \"node:zlib\"",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "N"
+      }
+    }
+  ]
+}

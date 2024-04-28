@@ -35,11 +35,6 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Build benchmark
-        run: |
-          pnpm build
-        working-directory: packages/caniusenode
-
       - name: Publish website
         uses: BetaHuhn/deploy-to-vercel-action@v1
         with:
