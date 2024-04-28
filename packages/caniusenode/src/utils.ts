@@ -45,6 +45,7 @@ export async function runCloudflare(code: string) {
       cwd: resolve(currentDir, "..", "cloudflare"),
     });
     cp.stderr.on("data", (data) => {
+      console.error(data.toString());
       if (data.toString().includes("ERR_RUNTIME_FAILURE")) {
         cp.kill();
       }
