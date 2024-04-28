@@ -177,6 +177,30 @@ for (const item of globalsResultTable) {
   };
 }
 
+const { modulesResultTable } = await import("./run-modules");
+
+for (const item of modulesResultTable) {
+  let tableItem = table.get(item.name);
+  if (!tableItem) {
+    tableItem = {
+      api: `module "${item.name}"`,
+      supportTable: {
+        bun: false,
+        deno: false,
+        nodeCJS: false,
+        nodeESM: false,
+      },
+    };
+    table.set(item.name, tableItem);
+  }
+  tableItem.supportTable = {
+    bun: item.bun,
+    deno: item.deno,
+    nodeCJS: item.nodeCJS,
+    nodeESM: item.nodeESM,
+  };
+}
+
 const nodeVersion = getNodeVersion();
 const denoVersion = getDenoVersion();
 const bunVersion = getBunVersion();
