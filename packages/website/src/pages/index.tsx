@@ -1,4 +1,3 @@
-import { Input } from "../components/ui/input";
 import { FullTable } from "../components/full-table";
 
 export default async function HomePage() {
@@ -13,13 +12,9 @@ export default async function HomePage() {
 }
 
 const getData = async () => {
-  const data = {
-    title: "Waku",
-    headline: "Waku",
-    body: "Hello world!",
+  return {
+    title: "Can I use Node?",
   };
-
-  return data;
 };
 
 export const getConfig = async () => {

@@ -24,12 +24,11 @@ export default async function RootLayout({ children }: RootLayoutProps) {
 }
 
 const getData = async () => {
-  const data = {
-    description: "An internet website!",
+  return {
+    description:
+      "Can I use... Support tables for Node.js, Deno, Bun, and other JS runtimes.",
     icon: "/images/favicon.png",
   };
-
-  return data;
 };
 
 export const getConfig = async () => {
