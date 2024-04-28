@@ -1,0 +1,19 @@
+{
+  "name": "caniusenode",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "node --import tsx src/log.ts",
+    "build": "node --import tsx src/build.ts"
+  },
+  "exports": {
+    "./benchmark.json": "./benchmark.json"
+  },
+  "private": true,
+  "devDependencies": {
+    "@types/node": "^20.12.7"
+  },
+  "dependencies": {
+    "tsx": "^4.7.3"
+  }
+}

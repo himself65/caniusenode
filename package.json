@@ -1,0 +1,16 @@
+{
+  "name": "@caniusenode/monorepo",
+  "type": "module",
+  "private": true,
+  "packageManager": "pnpm@9.0.6",
+  "keywords": [],
+  "scripts": {
+    "lint": "prettier . --check",
+    "lint:fix": "prettier . --write"
+  },
+  "author": "himself65 <himself65@outlook.com",
+  "license": "MIT",
+  "devDependencies": {
+    "prettier": "^3.2.5"
+  }
+}
