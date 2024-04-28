@@ -20,6 +20,7 @@ const nameAliasMap = new Map<string, string>([
   ["subtlecrypto", "crypto.subtle"],
   ["cryptokey", "CryptoKey"],
   ["broadcastchannel", "BroadcastChannel"],
+  ["websocket", "WebSocket"],
 ]);
 
 for (const section of ["globals", "classes", "miscs", "methods"] as const) {

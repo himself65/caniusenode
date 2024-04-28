@@ -667,13 +667,13 @@
       }
     },
     {
-      "api": "websocket",
+      "api": "WebSocket",
       "supportTable": {
-        "bun": "N",
-        "deno": "N",
+        "bun": "Y",
+        "deno": "Y",
         "nodeCJS": "N",
         "nodeESM": "N",
-        "cloudflare": "N"
+        "cloudflare": "Y"
       }
     },
     {
