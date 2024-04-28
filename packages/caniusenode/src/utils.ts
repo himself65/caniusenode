@@ -44,6 +44,9 @@ export async function runCloudflare(code: string): Promise<string | null> {
     const cp = spawn("pnpm", ["dlx", "wrangler", "dev", "--port", `${port}`], {
       cwd: resolve(currentDir, "..", "cloudflare"),
     });
+    cp.stdout.on("data", (data) => {
+      console.log(data.toString());
+    })
     cp.stderr.on("data", (data) => {
       if (data.toString().includes("ERR_RUNTIME_FAILURE")) {
         console.error("Runtime failure for code", code);
