@@ -1,7 +1,8 @@
 import { spawnSync } from "node:child_process";
 import { extname } from "node:path";
-import { fixtures } from "./utils";
+import { fixtures, runCloudflare } from "./utils";
 import { Status } from "./type";
+import { readFile } from "node:fs/promises";
 
 type Matrix = {
   target: string;
@@ -43,6 +44,10 @@ const matrix = [
     target: "bun",
     type: "commonjs",
   },
+  {
+    target: "cloudflare",
+    type: "module",
+  },
 ];
 
 type MatrixResult =
@@ -81,7 +86,7 @@ const table = new Map<string, TableItem>();
 
 export async function benchmark(filePath: string, annotation: Annotation) {
   const results = await Promise.all(
-    matrix.map<MatrixResult>((matrix) => {
+    matrix.map<Promise<MatrixResult>>(async (matrix) => {
       const { target, type } = matrix;
       if (type === "commonjs" && extname(filePath) === ".mjs") {
         return {
@@ -96,6 +101,36 @@ export async function benchmark(filePath: string, annotation: Annotation) {
           success: false,
           skipped: true,
         };
+      }
+      if (target === "cloudflare" && type !== "module") {
+        return {
+          matrix,
+          success: false,
+          skipped: true,
+        };
+      }
+      if (target === "cloudflare") {
+        const content = await readFile(filePath, "utf-8");
+        const result = await runCloudflare(`
+export default {
+  async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
+    ${content}
+    return new Response('SUCCESS');
+  },
+};`);
+        if (result === "SUCCESS") {
+          return {
+            matrix,
+            success: true,
+          };
+        } else {
+          return {
+            matrix,
+            success: false,
+            error: result ?? "Unknown error",
+            skipped: false,
+          };
+        }
       }
       const cp = spawnSync(target, [filePath]);
       if (cp.status !== 0) {
