@@ -5,7 +5,7 @@ type TableItemProps = {
 };
 const TableItem = ({ value }: TableItemProps) => {
   return (
-    <td className="text-center">
+    <td className="text-center w-36 border border-gray-300">
       {value === "Y"
         ? "✅"
         : value === "N"
@@ -25,9 +25,9 @@ export function FullTable() {
         <div>node: {json.versions.node}</div>
         <div>deno: {json.versions.deno}</div>
         <div>bun: {json.versions.bun}</div>
-        <div>Cloudflare Worker: {json.versions.cloudflare}</div>
+        <div>Cloudflare Workers: {json.versions.cloudflare}</div>
       </div>
-      <table className="border-separate [border-spacing:0.75rem]">
+      <table className="border border-gray-300">
         <caption className="text-center text-lg font-bold p-2">
           API Compatibility table
         </caption>
@@ -39,20 +39,75 @@ export function FullTable() {
           <col style={{ width: "15%" }} />
           <col style={{ width: "20%" }} />
         </colgroup>
-        <thead className="top-0 sticky bg-white">
+        <thead className="top-0 sticky bg-gray-100">
           <tr>
-            <th>API</th>
-            <th>Node CJS</th>
-            <th>Node ESM</th>
-            <th>Deno</th>
-            <th>Bun</th>
-            <th>Cloudflare Worker</th>
+            <th className="border border-gray-300 p-2">API</th>
+            <th className="border border-gray-300">
+              <div className="flex items-center justify-center">
+                <img
+                  src="/images/node.svg"
+                  alt="Node CJS"
+                  width={20}
+                  height={20}
+                  className="mr-1"
+                />
+                Node CJS
+              </div>
+            </th>
+            <th className="border border-gray-300">
+              <div className="flex items-center justify-center">
+                <img
+                  src="/images/node.svg"
+                  alt="Node ESM"
+                  width={20}
+                  height={20}
+                  className="mr-1"
+                />
+                Node ESM
+              </div>
+            </th>
+            <th className="border border-gray-300">
+              <div className="flex items-center justify-center">
+                <img
+                  src="/images/deno.svg"
+                  alt="Deno"
+                  width={20}
+                  height={20}
+                  className="mr-1"
+                />
+                Deno
+              </div>
+            </th>
+            <th className="border border-gray-300">
+              <div className="flex items-center justify-center">
+                <img
+                  src="/images/bun.svg"
+                  alt="Bun"
+                  width={20}
+                  height={20}
+                  className="mr-1"
+                />
+                Bun
+              </div>
+            </th>
+            <th className="border border-gray-300">
+              <div className="flex items-center justify-center">
+                <img
+                  src="/images/cloudflare-workers.svg"
+                  alt="Cloudflare Workers"
+                  width={20}
+                  height={20}
+                  className="mr-1"
+                />
+                Cloudflare Workers
+              </div>
+            </th>
           </tr>
         </thead>
         <tbody>
           {json.apis.map((row) => (
             <tr key={row.api}>
-              <td>{row.api}</td>
+              <td className="p-2 border border-gray-300">{row.api}</td>
               <TableItem value={row.supportTable.nodeCJS} />
               <TableItem value={row.supportTable.nodeESM} />
               <TableItem value={row.supportTable.deno} />
