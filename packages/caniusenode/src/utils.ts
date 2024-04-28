@@ -45,8 +45,8 @@ export async function runCloudflare(code: string): Promise<string | null> {
       cwd: resolve(currentDir, "..", "cloudflare"),
     });
     cp.stderr.on("data", (data) => {
-      console.error(data.toString());
       if (data.toString().includes("ERR_RUNTIME_FAILURE")) {
+        console.error("Runtime failure for code", code);
         cp.kill();
       }
     });
@@ -54,7 +54,9 @@ export async function runCloudflare(code: string): Promise<string | null> {
       port,
       output: "silent",
       timeout: 2000,
-    }).catch(() => {});
+    }).catch(() => {
+      console.error("Timeout");
+    });
     return fetch(`http://localhost:${port}/`)
       .then((res) => res.text())
       .then((text) => {
@@ -62,6 +64,7 @@ export async function runCloudflare(code: string): Promise<string | null> {
         return text;
       })
       .catch(() => {
+        console.log("Network error");
         cp?.kill();
         return null;
       });
