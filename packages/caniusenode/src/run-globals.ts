@@ -14,6 +14,14 @@ const globalObjects = json.miscs.find(
 
 const globalsResultTable: ResultTable = [];
 
+const nameAliasMap = new Map<string, string>([
+  ["request", "Request"],
+  ["response", "Response"],
+  ["subtlecrypto", "crypto.subtle"],
+  ["cryptokey", "CryptoKey"],
+  ["broadcastchannel", "BroadcastChannel"],
+]);
+
 for (const section of ["globals", "classes", "miscs", "methods"] as const) {
   const items = globalObjects[section]!;
 
@@ -26,6 +34,7 @@ ${items
     // unwrap \`...\`
     if (name.startsWith("class_")) name = g.textRaw.slice(6).trim();
     if (name.startsWith("`") && name.endsWith("`")) name = name.slice(1, -1);
+    if (nameAliasMap.has(name)) name = nameAliasMap.get(name)!;
     if (globalsResultTable.findIndex((item) => item.name === name) === -1) {
       // init
       globalsResultTable.push({

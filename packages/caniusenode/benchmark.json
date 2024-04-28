@@ -537,12 +537,12 @@
       }
     },
     {
-      "api": "broadcastchannel",
+      "api": "BroadcastChannel",
       "supportTable": {
-        "bun": "N",
+        "bun": "Y",
         "deno": "N",
-        "nodeCJS": "N",
-        "nodeESM": "N",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
         "cloudflare": "N"
       }
     },
@@ -557,13 +557,13 @@
       }
     },
     {
-      "api": "cryptokey",
+      "api": "CryptoKey",
       "supportTable": {
-        "bun": "N",
-        "deno": "N",
-        "nodeCJS": "N",
-        "nodeESM": "N",
-        "cloudflare": "N"
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "Y"
       }
     },
     {
@@ -637,33 +637,33 @@
       }
     },
     {
-      "api": "response",
+      "api": "Response",
       "supportTable": {
-        "bun": "N",
-        "deno": "N",
-        "nodeCJS": "N",
-        "nodeESM": "N",
-        "cloudflare": "N"
-      }
-    },
-    {
-      "api": "request",
-      "supportTable": {
-        "bun": "N",
-        "deno": "N",
-        "nodeCJS": "N",
-        "nodeESM": "N",
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
         "cloudflare": "Y"
       }
     },
     {
-      "api": "subtlecrypto",
+      "api": "Request",
       "supportTable": {
-        "bun": "N",
-        "deno": "N",
-        "nodeCJS": "N",
-        "nodeESM": "N",
-        "cloudflare": "N"
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "Y"
+      }
+    },
+    {
+      "api": "crypto.subtle",
+      "supportTable": {
+        "bun": "Y",
+        "deno": "Y",
+        "nodeCJS": "Y",
+        "nodeESM": "Y",
+        "cloudflare": "Y"
       }
     },
     {
